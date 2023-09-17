@@ -1,1 +1,22 @@
-<p>productos works!</p>
+<div>
+    <h1>Administración de artículos</h1>
+  
+    <table border="1" *ngIf="articulos && articulos.length > 0; else sinarticulos">
+      <tr>
+        <td>Codigo</td>
+        <td>Descripcion</td>
+        <td>Precio</td>
+      </tr>
+      <tr *ngFor="let art of articulos">
+        <td>{{ art.id }}</td>
+        <td>{{ art.descripcion }}</td>
+        <td>{{ art.precio }}</td>
+      </tr>
+    </table>
+  
+    <ng-template #sinarticulos>
+      <p>No hay artículos.</p>
+    </ng-template>
+
+  </div>
+  
