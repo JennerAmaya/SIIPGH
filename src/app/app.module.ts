@@ -7,12 +7,14 @@ import { ProductosComponent } from './MODULOS/productos/productos.component';
 import { CajaComponent } from './MODULOS/caja/caja.component';
 
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './MODULOS/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductosComponent,
-    CajaComponent
+    CajaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
