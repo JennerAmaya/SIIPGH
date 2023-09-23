@@ -26,10 +26,6 @@ export class ProductosComponent {
     this.articulosServicio.Todoslosproductos().subscribe((result: any) => this.articulos = result);
   }
 
-  seleccionar(codigo: number) {
-    this.articulosServicio.seleccionar(codigo).subscribe((result: any) => this.art = result[0]);
-  }
-
   hayRegistros() {
     return this.articulos && this.articulos.length > 0;
   }
