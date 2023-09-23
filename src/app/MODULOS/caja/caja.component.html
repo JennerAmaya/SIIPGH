@@ -1,1 +1,39 @@
-<p>caja works!</p>
+<h1>Caja</h1>
+
+
+<label for="producto">Producto:</label>
+<input type="text" id="producto" placeholder="Ingrese el nombre o código del producto" [(ngModel)]="productoNombre">
+<button (click)="agregarProducto()">Agregar</button>
+
+
+<h2>Lista de Productos</h2>
+<table border="1" *ngIf="productos && productos.length > 0; else sinarticulos">
+  <tr>
+    <td>Id</td>
+    <td>Codigo</td>
+    <td>Nombre</td>
+    <td>Precio</td>
+    <td>Cantidad</td> <!-- Nuevo campo para mostrar la cantidad -->
+  </tr>
+  <tr *ngFor="let producto of productos">
+    <td>{{ producto.id }}</td>
+    <td>{{ producto.codigo }}</td>
+    <td>{{ producto.nombre }}</td>
+    <td>{{ producto.precio }}</td>
+    <td>
+      {{ producto.cantidad }}
+      <button (click)="restarCantidad(producto)">-</button> <!-- Botón para restar cantidad -->
+    </td>
+  </tr>
+</table>
+
+<div class="camara">
+<app-camara  (codigoBarrasDetectadoEvent)="onCodigoBarrasDetectado($event)" ></app-camara>
+</div>
+ 
+<ng-template #sinarticulos>
+  <p>No hay artículos.</p>
+</ng-template>
+
+
+<p>Total: {{ sumaPrecios }}</p>
